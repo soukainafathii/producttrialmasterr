@@ -1,0 +1,113 @@
+.app-content {
+  overflow: hidden;
+  height: 100%;
+}
+
+.p-toolbar {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  padding: 0 20px;
+  height: 100px;
+}
+
+.p-toolbar-group-start {
+  display: flex;
+  align-items: center;
+}
+
+.p-toolbar-group-start img {
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.p-toolbar-group-center {
+  flex-grow: 1;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff9800;
+  letter-spacing: 1px;
+}
+
+.p-toolbar-group-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.wishlist-icon {
+  font-size: 1.5rem;
+  color: #e53935;
+  cursor: pointer;
+  margin-right :20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.wishlist-icon:hover {
+  color: #b71c1c;
+  transform: scale(1.1);
+}
+
+.logout-icon {
+  font-size: 1.5rem;
+  color: #555555;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logout-icon:hover {
+  color: #333333;
+  transform: scale(1.1);
+}
+
+.pi-shopping-cart {
+  font-size: 1.5rem;
+  color: #000000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.pi-shopping-cart:hover {
+  transform: scale(1.1);
+}
+
+.logout-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  background-color: #e63939;
+}
+
+.ui-tooltip {
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+@media (max-width: 768px) {
+  .p-toolbar-group-center {
+    font-size: 1.5rem;
+  }
+
+  .p-toolbar-group-end {
+    gap: 10px;
+  }
+
+  .wishlist-icon,
+  .logout-icon,
+  .pi-shopping-cart {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,43 @@
+<div class="wishlist-container" *ngIf="wishlist.products.length > 0">
+  <h1>Ma Liste D'envie </h1>
+  <div class="wishlist-item" *ngFor="let product of wishlist.products">
+    <img
+      [src]="product.image || 'assets/test-product-image.PNG'"
+      alt="{{ product.name }}"
+      class="product-image"
+    />
+    <div class="wishlist-item-details">
+      <div class="text-lg font-medium text-900 mt-2">{{ product.name }}</div>
+      <p class="product-description">{{ product.description }}</p>
+      <p class="product-price">Prix: {{ product.price }} MAD</p>
+      <p class="product-status">
+        Status:
+        <span [ngClass]="{
+          'in-stock': product.inventoryStatus === 'INSTOCK',
+          'low-stock': product.inventoryStatus === 'LOWSTOCK',
+          'out-of-stock': product.inventoryStatus === 'OUTOFSTOCK'
+        }">
+          {{ product.inventoryStatus === 'INSTOCK' ? 'In Stock' :
+          product.inventoryStatus === 'LOWSTOCK' ? 'Low Stock' : 'Out of Stock' }}
+        </span>
+      </p>
+      <div class="product-rating">
+        <div class="star-rating">
+          <i
+            *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+            class="pi"
+            [ngClass]="product.rating > i ? 'pi-star-fill' : 'pi-star'"
+          ></i>
+        </div>
+        <div class="remove-button-container">
+          <button class="remove-icon" pTooltip="Retirer de mes envies" tooltipPosition="top" (click)="removeFromWishlist(product.id)">
+            <i class="pi pi-trash"></i>
+          </button>
+        </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="wishlist.products.length === 0">
+  <p>Your wishlist is empty!</p>
+</div>
+</div>

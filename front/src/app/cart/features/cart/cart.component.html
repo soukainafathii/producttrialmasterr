@@ -1,0 +1,40 @@
+<div class="cart-container" *ngIf="cart.items.length > 0">
+  <h1>Mon Panier</h1>
+  <div class="cart-item" *ngFor="let item of cart.items">
+    <img [src]="item.image || 'assets/test-product-image.PNG'" alt="{{ item.productName }}" class="product-image" />
+
+    <div class="cart-item-details">
+      <h2 class="product-name">{{ item.productName }}</h2>
+      <p class="product-price">Prix: <span>{{ item.productPrice }} MAD</span></p>
+      <p class="product-status">
+        Status:
+        <span [ngClass]="{
+          'in-stock': item.inventoryStatus === 'INSTOCK',
+          'low-stock': item.inventoryStatus === 'LOWSTOCK',
+          'out-of-stock': item.inventoryStatus === 'OUTOFSTOCK'
+        }">
+          {{ item.inventoryStatus === 'INSTOCK' ? 'In Stock' :
+          item.inventoryStatus === 'LOWSTOCK' ? 'Low Stock' : 'Out of Stock' }}
+        </span>
+      </p>
+      <div class="product-rating">
+        <div class="star-rating">
+          <i
+            *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+            class="pi"
+            [ngClass]="item.rating > i ? 'pi-star-fill' : 'pi-star'"
+          ></i>
+        </div>
+      </div>
+       <div class="quantity-control">
+        <button class="btn-minus" (click)="removeFromCart(item.productId)">-</button>
+        <span class="quantity">{{ item.quantity }}</span>
+        <button class="btn-plus" (click)="addToCart(item.productId, 1)">+</button>
+       </div>
+
+  </div>
+</div>
+<div *ngIf="cart.items.length === 0" class="empty-cart-message">
+  <p>Your cart is empty!</p>
+</div>
+</div>

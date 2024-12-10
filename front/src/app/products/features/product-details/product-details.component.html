@@ -1,0 +1,41 @@
+<div class="product-details-container" *ngIf="product">
+  <div class="product-details-card">
+    <img
+      [src]="product.image || 'assets/test-product-image.PNG'"
+      alt="{{ product.name }}"
+      class="product-image"
+    />
+    <div class="product-details-content">
+      <h1>{{ product.name }}</h1>
+      <p class="product-category">Catégorie: {{ product.category }}</p>
+      <p class="product-description">{{ product.description }}</p>
+      <p class="product-price">Prix: {{ product.price }} MAD</p>
+      <p class="product-status">
+        Status:
+        <span [ngClass]="{
+          'in-stock': product.inventoryStatus === 'INSTOCK',
+          'low-stock': product.inventoryStatus === 'LOWSTOCK',
+          'out-of-stock': product.inventoryStatus === 'OUTOFSTOCK'
+        }">
+          {{ product.inventoryStatus === 'INSTOCK' ? 'In Stock' :
+          product.inventoryStatus === 'LOWSTOCK' ? 'Low Stock' : 'Out of Stock' }}
+        </span>
+      </p>
+      <div class="product-rating">
+        <div class="star-rating">
+          <i
+            *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+            class="pi"
+            [ngClass]="product.rating > i ? 'pi-star-fill' : 'pi-star'"
+          ></i>
+        </div>
+        <p-button
+          class="p-button-cart"
+          icon="pi pi-shopping-cart"
+          (onClick)="addToCart(product.id)"
+        ></p-button>
+      </div>
+
+    </div>
+  </div>
+</div>

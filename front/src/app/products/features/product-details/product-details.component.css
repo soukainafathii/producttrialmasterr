@@ -1,0 +1,142 @@
+.product-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.product-details-card {
+  display: flex;
+  gap: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 85%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-details-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  border-color: #ffa726;
+}
+
+.product-image {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-details-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-details-content h1 {
+  margin: 0;
+  color: #212121;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.product-category {
+  font-size: 1.2rem;
+  color: #616161;
+  margin-bottom: 1rem;
+}
+
+.product-description {
+  margin: 1rem 0;
+  color: #424242;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.product-price {
+  font-size: 1rem;
+  color: #c62828;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.product-quantity,
+.product-status {
+  font-size: 1.3rem;
+  color: #333333;
+  margin-bottom: 1rem;
+}
+
+.product-status span {
+  font-weight: bold;
+}
+
+.in-stock {
+  color: #2e7d32;
+}
+
+.low-stock {
+  color: #f9a825;
+}
+
+.out-of-stock {
+  color: #c62828;
+}
+
+.product-rating {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.p-button-cart {
+  margin-top: 1.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+
+.product-rating {
+  display: flex;
+  align-items: center;
+}
+
+.star-rating {
+  display: flex;
+  gap: 5px;
+}
+
+.pi-star,
+.pi-star-fill {
+  font-size: 1.5rem;
+  color: #ffd700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.pi-star {
+  color: #ccc;
+}
+
+.pi-star:hover {
+  color: #ffbf00;
+}
+
+

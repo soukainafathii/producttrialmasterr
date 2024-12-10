@@ -1,0 +1,47 @@
+<p-toolbar [style]="{ height: '100px' }">
+    <div class="p-toolbar-group-start">
+        <img src="assets/icons/altenshoplogo.PNG" alt="logo" />
+    </div>
+    <div class="p-toolbar-group-center">
+        {{ title }}
+    </div>
+    <div class="p-toolbar-group-end">
+      <i
+        class="pi pi-shopping-cart"
+        pTooltip="View Cart"
+        tooltipPosition="top"
+        style="font-size: 2rem; margin-right: 15px; cursor: pointer;"
+        (click)="goToCart()"
+      >
+        <span class="p-badge" *ngIf="cartItemCount() > 0">{{ cartItemCount() }}</span>
+      </i>
+      <i
+        *ngIf="isAuthenticated()"
+        class="pi pi-heart wishlist-icon"
+        pTooltip="Wishlist"
+        tooltipPosition="top"
+        (click)="goToWishlist()"
+      ></i>
+      <i
+        *ngIf="isAuthenticated()"
+        class="pi pi-sign-out logout-icon"
+        pTooltip="Logout"
+        tooltipPosition="top"
+        (click)="logout()"
+      ></i>
+    </div>
+</p-toolbar>
+<p-splitter
+    [panelSizes]="[20, 80]"
+    [style]="{ height: 'calc(100vh - 100px)' }">
+    <ng-template pTemplate>
+        <div class="w-full">
+            <app-panel-menu />
+        </div>
+    </ng-template>
+    <ng-template pTemplate>
+        <div class="w-full app-content">
+            <router-outlet></router-outlet>
+        </div>
+    </ng-template>
+</p-splitter>
